@@ -8,13 +8,17 @@ const app = express()
 // so that your API is remotely testable by FCC 
 app.use(cors({ optionSuccessStatus: 200 }))
 app.use(express.static('public'))
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.originalUrl}`)
+    next()
+})
 
 app.get('/', (req, res) => {
-	res.sendFile(__dirname + '/views/index.html')
+    res.sendFile(__dirname + '/views/index.html')
 })
 
 
 const listener = app.listen(
-	process.env.PORT,
-	() => console.log(`Your app is listening on port ${ listener.address().port }`)
+    process.env.PORT,
+    () => console.log(`Your app is listening on port ${ listener.address().port }`)
 )
