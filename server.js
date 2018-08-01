@@ -1,6 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 
+const api = require('./api')
+
 const app = express()
 
 
@@ -12,10 +14,12 @@ app.use((req, res, next) => {
     console.log(`${req.method} ${req.originalUrl}`)
     next()
 })
+app.use('/api', api)
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html')
 })
+
 
 
 const listener = app.listen(
