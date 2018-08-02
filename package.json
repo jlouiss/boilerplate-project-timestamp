@@ -25,6 +25,9 @@
 	],
 	"license": "MIT",
 	"devDependencies": {
-		"@types/express": "^4.16.0"
+		"@types/express": "^4.16.0",
+		"chai": "^4.1.2",
+		"chai-http": "^4.0.0",
+		"jest": "^23.4.2"
 	}
 }
