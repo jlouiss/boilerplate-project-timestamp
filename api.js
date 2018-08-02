@@ -3,7 +3,7 @@ const router = express.Router()
 
 
 router.get('/timestamp/:date_time', (req, res) => {
-    res.json({ debug: 'doing something' })
+  res.json({debug: 'doing something'})
 })
 
 
