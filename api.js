@@ -7,7 +7,17 @@ router.get('/timestamp/:date_time?', (req, res) => {
     unix: null,
     utc: 'Invalid Date'
   }
-  res.json(default_timestamp_response)
+
+  const { date_time } = req.params
+  const date = date_time === undefined ? new Date() : new Date(date_time)
+
+  if (date === 'Invalid Date' && date_time !== undefined)
+    res.json(default_timestamp_response)
+  else
+    res.json({
+      unix: date.getTime(),
+      utc: date.toUTCString()
+    })
 })
 
 
